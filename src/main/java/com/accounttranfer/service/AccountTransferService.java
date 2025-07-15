@@ -20,10 +20,15 @@ public class AccountTransferService {
 
 @Autowired
 RestTemplate restTemplate;
-    private final String BASE_URL = "http://localhost:8082/api/fundings";
-    private final String BASE_URL2 = "http://localhost:8082/api/fundings/updateFund";
-    private final String SANCTIONSERIVCE_URL = "http://localhost:8082/api/sanction";
-    private final String ALLFUNDING_URL = "http://localhost:8082/api/fundings/getAllFund";
+//    private final String BASE_URL = "http://localhost:8082/api/fundings";
+//    private final String BASE_URL2 = "http://localhost:8082/api/fundings/updateFund";
+//    private final String SANCTIONSERIVCE_URL = "http://localhost:8082/api/sanction";
+//    private final String ALLFUNDING_URL = "http://localhost:8082/api/fundings/getAllFund";
+
+    private final String BASE_URL = "https://funding.azurewebsites.net/api/fundings";
+  private final String BASE_URL2 = "https://funding.azurewebsites.net/api/fundings/updateFund";
+    private final String SANCTIONSERIVCE_URL = "https://funding.azurewebsites.net/api/sanction";
+    private final String ALLFUNDING_URL = "https://funding.azurewebsites.net/api/fundings/getAllFund";
 
     private static final Logger logger = LogManager.getLogger(AccountTransferService.class);
 
@@ -47,7 +52,7 @@ RestTemplate restTemplate;
 
 
     public void saveAllFundings(List<FundingModel> fundings) {
-        final String BULK_SAVE_URL = "http://localhost:8082/api/fundings/saveAllFunds";
+        final String BULK_SAVE_URL = "https://funding.azurewebsites.net/api/fundings/saveAllFunds";
         logger.info("inside account service save all funds method:: ");
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
@@ -87,7 +92,7 @@ RestTemplate restTemplate;
 
     public List<FundingModel> getAllInProgressTxn() throws URISyntaxException {
 
-        final String ALLFUNDING_URL = "http://localhost:8082/api/fundings/getAllFundInProgress";
+        final String ALLFUNDING_URL = "https://funding.azurewebsites.net/api/fundings/getAllFundInProgress";
 
         URI uri = new URI(ALLFUNDING_URL);
 
