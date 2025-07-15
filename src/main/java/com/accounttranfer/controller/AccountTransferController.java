@@ -39,6 +39,15 @@ public class AccountTransferController {
 
     private static final Logger logger = LogManager.getLogger(AccountTransferController.class);
 
+    @PostMapping("/currencys")
+    public FundingModel create1(@RequestBody AccountTransferModel accountTransferModel) {
+        logger.info(" inside controller crete method :: "+accountTransferModel);
+
+        FundingModel model1 = new FundingModel();
+
+        return model1;
+
+    }
 
     @PostMapping("/currency")
     public FundingModel create(@RequestBody AccountTransferModel accountTransferModel) {
